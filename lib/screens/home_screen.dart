@@ -1,7 +1,9 @@
 import 'package:crisfood/const/colors.dart';
 import 'package:crisfood/const/constant.dart';
 import 'package:crisfood/models/popular_cuisine_model.dart';
+import 'package:crisfood/utils/home_screen_offers_card.dart';
 import 'package:crisfood/utils/home_screen_popular_cuisine_card.dart';
+import 'package:crisfood/utils/home_screen_restaurant_around_you.dart';
 import 'package:crisfood/viewmodels/home_screen_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -16,6 +18,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final listOfPopularCuisine = HomeScreenViewModel().getPopularCuisineList();
+  final listOfOffersAroundYou = HomeScreenViewModel().getOffersAroundYou();
 
   @override
   void initState() {
@@ -30,6 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
     final height = MediaQuery.of(context).size.height / 100;
 
     return Scaffold(
+      backgroundColor: ColorsCustom.backgroundGray,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0),
@@ -55,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           const SizedBox(
                             width: 6.0,
                           ),
-                          Text(
+                          const Text(
                             "Home",
                             style: kTextStyleTitleBoldBlack20,
                           )
@@ -70,9 +74,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       )
                     ],
                   ),
-                  // Expanded(
-                  //   child: Container(),
-                  // ),
+                  Expanded(
+                    child: Container(),
+                  ),
                   SvgPicture.asset("assets/images/search_icon.svg")
                 ],
               ),
@@ -81,6 +85,18 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 26.0,
               ),
+
+              // checking.
+              RestaurantAroundYouCard(
+                  imageName: "dalvi_hotel.png",
+                  name: "Abdul Wahab Dalvi",
+                  description: "Sweets & Farsan",
+                  address: "Mumbra station.",
+                  tag: "popular",
+                  rating: "4.0",
+                  duration: "30",
+                  special: "₹250 for two"),
+
               Container(
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height / 4,
@@ -99,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
               Text(
                 "Popular cuisines around you",
-                style: kTextStyleRegularBlack14,
+                style: kTextStyleSemiBoldBlack14,
               ),
 
               SizedBox(
@@ -143,7 +159,52 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Container(),
                           )
                         ]),
-                  ))
+                  )),
+
+              // top offers around you section -------------------
+              const SizedBox(
+                height: 20.0,
+              ),
+
+              const Text(
+                "Top offers around you",
+                style: kTextStyleSemiBoldBlack14,
+              ),
+
+              const SizedBox(
+                height: 16.0,
+              ),
+
+              Container(
+                width: double.infinity,
+                height: 120.0,
+                child: ListView(
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  children: listOfOffersAroundYou
+                      .map((e) =>
+                          OffersCardHomeScreen(image: e.image, name: e.name))
+                      .toList(),
+                ),
+              ),
+
+              //restaurant around you section ---------------
+              const SizedBox(
+                height: 20.0,
+              ),
+
+              const Text(
+                "123 Restaurants around you",
+                style: kTextStyleSemiBoldBlack14,
+              ),
+
+              const SizedBox(
+                height: 16.0,
+              ),
+
+              // ListView(
+              //   children: ,
+              // )
             ]),
           ),
         ),

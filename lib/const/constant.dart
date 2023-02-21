@@ -15,7 +15,22 @@ const kTextStyleHintRegularGray14 = TextStyle(
 
 const kTextStyleSemiBoldWhite16 = TextStyle(
   fontSize: 16.0,
+  fontWeight: FontWeight.w600,
   color: Colors.white70,
+  fontFamily: "Figtree",
+);
+
+const kTextStyleSemiBoldBlack16 = TextStyle(
+  fontSize: 16.0,
+  fontWeight: FontWeight.w600,
+  color: Colors.black,
+  fontFamily: "Figtree",
+);
+
+const kTextStyleSemiBoldBlack14 = TextStyle(
+  fontSize: 14.0,
+  color: Colors.black,
+  fontWeight: FontWeight.w600,
   fontFamily: "Figtree",
 );
 
