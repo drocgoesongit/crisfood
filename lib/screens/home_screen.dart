@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:crisfood/const/colors.dart';
 import 'package:crisfood/const/constant.dart';
 import 'package:crisfood/screens/search_screen.dart';
+import 'package:crisfood/theme/theme_manager.dart';
 import 'package:crisfood/utils/home_screen_offers_card.dart';
 import 'package:crisfood/utils/home_screen_popular_cuisine_card.dart';
 import 'package:crisfood/utils/home_screen_restaurant_around_you.dart';
@@ -9,6 +10,8 @@ import 'package:crisfood/viewmodels/home_screen_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
+ThemeManager themeManager = ThemeManager();
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({super.key});
@@ -26,11 +29,28 @@ class _HomeScreenState extends State<HomeScreen> {
   var _isExtraCuisineVisible = false;
 
   @override
+  void dispose() {
+    themeManager.removeListener(() {
+      themeListener();
+    });
+    super.dispose();
+  }
+
+  @override
   void initState() {
     super.initState();
+    themeManager.addListener(() {
+      themeListener();
+    });
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
+  }
+
+  themeListener() {
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   void _onItemTapped(int index) {
@@ -110,12 +130,19 @@ class _HomeScreenState extends State<HomeScreen> {
                 const Text(
                   "Majhewada, rd never going, bhiwandi",
                   style: kTextStyleHintRegularGray16,
-                )
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
               ],
             ),
             Expanded(
               child: Container(),
             ),
+            Switch(
+                value: themeManager.themeMode == ThemeMode.dark,
+                onChanged: (val) {
+                  themeManager.toggleThemeMode(val);
+                }),
             IconButton(
                 onPressed: () {
                   Navigator.push(context,
@@ -126,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
 
-      backgroundColor: ColorsCustom.backgroundGray,
+      backgroundColor: ColorsCustom().backgroundGray,
 
       body: SafeArea(
         child: SingleChildScrollView(
