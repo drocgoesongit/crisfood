@@ -68,6 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height / 100;
+    Widget page;
 
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
@@ -153,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
 
-      backgroundColor: ColorsCustom().backgroundGray,
+      backgroundColor: ColorsCustom.backgroundGray,
 
       body: SafeArea(
         child: SingleChildScrollView(
