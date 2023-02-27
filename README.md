@@ -1,6 +1,4 @@
-# crisfood
-<<<<<<< HEAD
-Crisfood user app UI code.
+# crisfood user app UI code.
 =======
 
 A new Flutter project.
