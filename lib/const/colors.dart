@@ -1,7 +1,11 @@
 import 'package:crisfood/theme/theme_manager.dart';
 import 'package:flutter/material.dart';
 
+<<<<<<< HEAD
 // this is the changes made in new branch.
+=======
+// We have to make changes here for theming.
+>>>>>>> master
 
 class ColorsCustom {
   static const yellowDark = Color(0xFFFFBF29);
