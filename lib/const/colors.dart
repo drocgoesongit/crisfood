@@ -1,6 +1,8 @@
 import 'package:crisfood/theme/theme_manager.dart';
 import 'package:flutter/material.dart';
 
+// We have to make changes here for theming.
+
 class ColorsCustom {
   static const yellowDark = Color(0xFFFFBF29);
   static const yellowBright = Color(0xFFFFCC29);
