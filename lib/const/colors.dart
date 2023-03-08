@@ -17,9 +17,9 @@ class ColorsCustom {
 class ColorsCustomDark {
   static const yellowDark = Color(0xFFFFBF29);
   static const yellowBright = Color(0xFFFFCC29);
-  static const grayHint = Color(0xFF858585);
+  static const grayHint = Color(0xFFfffddd);
   static const starOrange = Color(0xFFFDF6D5);
   static const durationGreen = Color(0xFFE3F9E4);
-  static const backgroundGray = Color(0xFFF8F8F8);
+  static const backgroundGray = Color(0xFF282828);
   static const pinkAccentColor = Color(0xFFF05C5C);
 }

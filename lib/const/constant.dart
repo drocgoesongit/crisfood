@@ -1,15 +1,22 @@
 import 'package:crisfood/const/colors.dart';
+import 'package:crisfood/theme/theme_manager.dart';
 import 'package:flutter/material.dart';
 
-const kTextStyleHintRegularGray16 = TextStyle(
+ThemeManager themeManager = ThemeManager();
+
+final kTextStyleHintRegularGray16 = TextStyle(
   fontSize: 16.0,
-  color: ColorsCustom.grayHint,
+  color: themeManager.themeMode == ThemeMode.light
+      ? ColorsCustom.grayHint
+      : Colors.white54,
   fontFamily: "Figtree",
 );
 
-const kTextStyleHintRegularGray14 = TextStyle(
+final kTextStyleHintRegularGray14 = TextStyle(
   fontSize: 14.0,
-  color: ColorsCustom.grayHint,
+  color: themeManager.themeMode == ThemeMode.light
+      ? ColorsCustom.grayHint
+      : Colors.white54,
   fontFamily: "Figtree",
 );
 
@@ -20,23 +27,27 @@ const kTextStyleSemiBoldWhite16 = TextStyle(
   fontFamily: "Figtree",
 );
 
-const kTextStyleSemiBoldBlack16 = TextStyle(
+final kTextStyleSemiBoldBlack16 = TextStyle(
   fontSize: 16.0,
   fontWeight: FontWeight.w600,
-  color: Colors.black,
+  color:
+      themeManager.themeMode == ThemeMode.light ? Colors.black : Colors.white70,
   fontFamily: "Figtree",
 );
 
-const kTextStyleSemiBoldBlack14 = TextStyle(
+final kTextStyleSemiBoldBlack14 = TextStyle(
   fontSize: 14.0,
-  color: Colors.black,
+  color:
+      themeManager.themeMode == ThemeMode.light ? Colors.black : Colors.white70,
   fontWeight: FontWeight.w600,
   fontFamily: "Figtree",
 );
 
-const kTextStyleRegularBlack16 = TextStyle(
+final kTextStyleRegularBlack16 = TextStyle(
   fontSize: 16.0,
-  color: Colors.black,
+  color: themeManager.themeMode == ThemeMode.light
+      ? ColorsCustom.grayHint
+      : Colors.white70,
   fontFamily: "Figtree",
 );
 
