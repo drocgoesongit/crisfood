@@ -12,6 +12,7 @@ class ColorsCustom {
   static const durationGreen = Color(0xFFE3F9E4);
   static const backgroundGray = Color(0xFFF8F8F8);
   static const pinkAccentColor = Color(0xFFF05C5C);
+  static const greenAccent = Color(0xFF116E0E);
 }
 
 class ColorsCustomDark {

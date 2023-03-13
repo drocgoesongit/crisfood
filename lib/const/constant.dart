@@ -20,6 +20,13 @@ final kTextStyleHintRegularGray14 = TextStyle(
   fontFamily: "Figtree",
 );
 
+final kTextStyleHintRegularGray12 = TextStyle(
+  fontSize: 12.0,
+  color: themeManager.themeMode == ThemeMode.light
+      ? ColorsCustom.grayHint
+      : Colors.white54,
+  fontFamily: "Figtree",
+);
 const kTextStyleSemiBoldWhite16 = TextStyle(
   fontSize: 16.0,
   fontWeight: FontWeight.w600,

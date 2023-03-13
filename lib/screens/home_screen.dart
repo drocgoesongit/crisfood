@@ -30,12 +30,6 @@ class _HomeScreenState extends State<HomeScreen> {
   var _selectedIndex = 0;
   var _isExtraCuisineVisible = false;
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
-
   void _makeExtraCuisineVisible(bool currentState) {
     setState(() {
       _isExtraCuisineVisible = !currentState;
@@ -90,8 +84,10 @@ class _HomeScreenState extends State<HomeScreen> {
                   icon: SvgPicture.asset("assets/images/profile_icon.svg"),
                   label: "Home"),
             ],
-            type: BottomNavigationBarType.shifting,
+            type: BottomNavigationBarType.fixed,
             currentIndex: _selectedIndex,
+            selectedIconTheme:
+                const IconThemeData(color: ColorsCustom.pinkAccentColor),
             selectedItemColor: ColorsCustom.pinkAccentColor,
             iconSize: 40,
             showUnselectedLabels: true,
@@ -104,7 +100,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 fontSize: 14.0,
                 color: ColorsCustom.grayHint),
             unselectedFontSize: 14.0,
-            onTap: _onItemTapped,
+            onTap: (index) {
+              setState(() {
+                _selectedIndex = index;
+              });
+            },
             elevation: 5),
         // appbar
         appBar: AppBar(
@@ -251,7 +251,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Container(
                               alignment: Alignment.center,
                               width: double.infinity,
-                              padding: EdgeInsets.all(2.0),
+                              padding: const EdgeInsets.all(2.0),
                               decoration: BoxDecoration(
                                   border: Border.all(
                                     color: ColorsCustom.grayHint,

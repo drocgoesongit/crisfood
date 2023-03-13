@@ -17,7 +17,7 @@ class CouponListForRestaurant extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 56.0,
+      // height: 56.0,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.0),
         color: Colors.white,
@@ -25,26 +25,37 @@ class CouponListForRestaurant extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 8.0),
-        child: Column(children: [
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Row(
             children: [
-              SvgPicture.asset("assets/images/percentage.svg"),
-              SizedBox(
+              SvgPicture.asset(
+                "assets/images/percentage.svg",
+                width: 20,
+                height: 20,
+              ),
+              const SizedBox(
                 width: 10.0,
               ),
               Text(
                 couponName,
                 style: kTextStyleSemiBoldBlack14,
+                overflow: TextOverflow.ellipsis,
               ),
-              Expanded(child: Container()),
-              SvgPicture.asset("assets/images/copy_icon.svg"),
+              const SizedBox(
+                width: 40.0,
+              ),
+              SvgPicture.asset(
+                "assets/images/copy_icon.svg",
+                width: 20,
+                height: 20,
+              ),
             ],
           ), // First row
-          SizedBox(
+          const SizedBox(
             height: 10.0,
           ),
           Text(
-            "Use ${couponCode} Above ${aboveMargin}",
+            "Use $couponCode Above $aboveMargin",
             style: kTextStyleRegularBlack14,
           )
         ]),
